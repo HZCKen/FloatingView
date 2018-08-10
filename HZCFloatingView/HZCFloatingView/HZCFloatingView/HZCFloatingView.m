@@ -58,6 +58,15 @@ static HZCSemiCircleView *semiCircleView;
     }
     floatingView.floatVC = floatVC;
     floatingView.frame = CGRectMake(10, 100, 60, 60);
+    floatVC.navigationController.delegate = floatingView;
+    [floatVC.navigationController popViewControllerAnimated:YES];
+    
+}
+
++ (void)removeFloatingView {
+    floatingView.floatVC = nil;
+    floatingView.floatVC.navigationController.delegate = nil;
+    [floatingView removeFromSuperview];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -110,7 +119,7 @@ static HZCSemiCircleView *semiCircleView;
         // 如果floatingView在semiCircleView内部，就移除
         CGFloat distance = sqrt(pow([UIScreen mainScreen].bounds.size.width - self.center.x, 2) + pow([UIScreen mainScreen].bounds.size.height - self.center.y, 2) );
         if (distance <= fixedSpace - 30) {
-            [self removeFromSuperview];
+            [HZCFloatingView removeFloatingView];
         }
         semiCircleView.frame = CGRectMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height, fixedSpace, fixedSpace);
     }];

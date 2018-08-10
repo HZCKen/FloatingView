@@ -13,4 +13,6 @@
 
 + (void)showWithFloatVC:(UIViewController *)floatVC;
 
++ (void)removeFloatingView;
+
 @end
