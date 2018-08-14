@@ -1,19 +1,20 @@
 //
-//  SecondViewController.m
+//  ThirdViewController.m
 //  HZCFloatingView
 //
-//  Created by Apple on 2018/8/9.
+//  Created by Ken_cheng on 2018/8/14.
 //  Copyright © 2018年 AiChen smart Windows and doors technology co., LTD. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "ThirdViewController.h"
 #import "HZCFloatingView.h"
 
-@interface SecondViewController ()
+
+@interface ThirdViewController ()
 
 @end
 
-@implementation SecondViewController
+@implementation ThirdViewController
 
 - (void)dealloc {
     NSLog(@"%s", __FUNCTION__);
@@ -22,19 +23,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"222";
+
+    self.title = @"3333";
     self.view.backgroundColor = [UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0];
 
 
 }
 - (IBAction)clickButton:(UIButton *)sender {
-
     [HZCFloatingView showWithFloatVC:self];
 }
 - (IBAction)clickRemoveButton:(UIButton *)sender {
 
     [HZCFloatingView remove];
-
 }
 
 - (void)didReceiveMemoryWarning {
